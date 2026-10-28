@@ -10,7 +10,7 @@ const categoriasRoute = require("./routes/categoriasRoute");
 
 app.use(express.json());
 app.use("/produtos", produtosRoute);
-//app.use("/categorias", categoriasRoute);
+app.use("/categorias", categoriasRoute);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na http://localhost:${PORT}`);

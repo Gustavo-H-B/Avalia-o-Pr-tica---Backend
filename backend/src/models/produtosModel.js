@@ -18,7 +18,7 @@ const procurarIdProduto = async (id) => {
 };
 
 const cadastrarProduto = async (nome, descricao, preco, quantidade_atual, quantidade_minima,categorias_id) => {
-    const produtoCriado = await db.query(
+    const [produtoCriado] = await db.query(
         `INSERT INTO produtos
         (nome, descricao, preco, quantidade_atual, quantidade_minima,categorias_id)
         values (?, ?, ?, ?, ?, ?);`,
@@ -44,7 +44,7 @@ const deletarProduto = async (id) => {
         [id]
     );
 
-    return produto.affectedrows;
+    return produto.affectedRows;
 };
 
 module.exports = {
